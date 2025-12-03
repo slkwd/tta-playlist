@@ -1,0 +1,228 @@
+/* ========== Audio embed + bottone "Add to playlist" ===================== */
+
+.tta-track-embed {
+	position: relative;
+	margin-bottom: 0.75em;
+}
+
+/* Wrapper per il bottone */
+.tta-add-to-playlist-wrapper {
+	margin-top: 0.25em;
+	text-align: right;
+}
+
+/* Bottone "Add to playlist" (pallino verde con + bianco) */
+.tta-add-to-playlist {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	border-radius: 999px;
+	border: none;
+	background: #2e8b57; /* verde sobrio */
+	color: #fff;
+	font-size: 16px;
+	line-height: 1;
+	cursor: pointer;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+	padding: 0;
+}
+
+.tta-add-to-playlist:hover {
+	background: #256e45;
+}
+
+/* ========== CARD DELLA PLAYLIST ========================================= */
+
+.tta-playlist-wrapper {
+	border: 1px solid #d8dde5;
+	border-radius: 6px;
+	padding: 8px 0 0;
+	margin: 0.75em 0;
+	background: #fff;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+	font-size: 0.95em;
+}
+
+.tta-playlist-header-row {
+	display: flex;
+	align-items: center;
+	padding: 4px 12px 8px;
+}
+
+.tta-playlist-cover {
+	flex: 0 0 auto;
+	margin-right: 12px;
+}
+
+.tta-playlist-cover-img {
+	display: block;
+	width: 96px;
+	height: 96px;
+	object-fit: cover;
+	border-radius: 4px;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.tta-playlist-meta {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.tta-playlist-title {
+	font-weight: 600;
+	font-size: 1.1em;
+	margin-bottom: 2px;
+}
+
+.tta-playlist-subtitle {
+	color: #666;
+	font-size: 0.9em;
+	margin-bottom: 4px;
+}
+
+/* Controlli principali (prev / play / next / shuffle) */
+.tta-playlist-controls-top {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	margin-top: 2px;
+}
+
+.tta-playlist-btn {
+	border: 1px solid #c3ccd7;
+	background: #f8fafc;
+	border-radius: 999px;
+	padding: 2px 8px;
+	font-size: 0.9em;
+	cursor: pointer;
+}
+
+.tta-playlist-btn:hover {
+	background: #e8edf4;
+}
+
+.tta-playlist-shuffle.is-active {
+	background: #dbeafe;
+	border-color: #60a5fa;
+}
+
+/* ========== LISTA TRACCE ================================================= */
+
+.tta-playlist-tracklist {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	border-top: 1px solid #e1e4ea;
+}
+
+.tta-playlist-track {
+	display: flex;
+	align-items: center;
+	padding: 4px 12px;
+	border-top: 1px solid #f0f2f7;
+	cursor: pointer;
+}
+
+.tta-playlist-track:first-child {
+	border-top: none;
+}
+
+.tta-playlist-track.is-current {
+	background: #f3f6fb;
+}
+
+/* Numero traccia */
+.tta-track-num {
+	flex: 0 0 2em;
+	text-align: right;
+	margin-right: 8px;
+	font-size: 0.9em;
+	color: #666;
+}
+
+/* Thumbnail per brano */
+.tta-track-thumb {
+	flex: 0 0 24px;
+	margin-right: 8px;
+}
+
+.tta-track-thumb-img {
+	display: block;
+	width: 24px;
+	height: 24px;
+	object-fit: cover;
+	border-radius: 3px;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+/* Testo traccia (titolo + extra) */
+.tta-track-text {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.tta-track-title {
+	font-weight: 600;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.tta-track-extra {
+	font-size: 0.85em;
+	color: #666;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Handle drag & drop (⋮⋮) */
+.tta-track-handle {
+	flex: 0 0 auto;
+	font-size: 12px;
+	margin: 0 8px;
+	cursor: grab;
+	user-select: none;
+	opacity: 0.6;
+}
+
+.tta-playlist-track.is-dragging {
+	opacity: 0.6;
+	background: #eef3ff;
+}
+
+/* Cestino (rimozione brano, gestito dal Manager) */
+.tta-remove-track-btn {
+	flex: 0 0 auto;
+	border: none;
+	background: none;
+	cursor: pointer;
+	font-size: 13px;
+	margin-left: 4px;
+	opacity: 0.8;
+}
+
+.tta-remove-track-btn:hover {
+	opacity: 1;
+}
+
+/* ========== BARRA "NOW PLAYING" ======================================== */
+
+.tta-playlist-nowplaying {
+	border-top: 1px solid #e1e4ea;
+	padding: 6px 12px 8px;
+}
+
+.tta-nowplaying-title {
+	font-size: 0.9em;
+	margin-bottom: 4px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.tta-playlist-audio {
+	width: 100%;
+}

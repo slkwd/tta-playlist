@@ -1,0 +1,29 @@
+<noinclude>
+This is the 'Featured Tunes' template.
+It should be called in the following format:
+<pre>
+{{FeaturedTunes
+|f_track=
+|f_artwork=
+|f_tune_name=
+|f_track_title=
+|f_played_by=
+|f_source=
+|f_notes=
+|f_pix=
+|f_picpix=
+|f_piclink=
+}}
+</pre>
+Edit the page to see the template text.
+</noinclude>
+
+<includeonly>
+<div class="tta-track-embed"
+     data-filetitle="File:{{{f_track|}}}"
+     data-extra="{{{f_played_by|}}}"
+     data-artwork="File:{{#if: {{{f_artwork|}}}|{{{f_artwork|}}}|Clef.jpg}}">
+[[File:{{{f_track|}}}|thumb|left|{{#if: {{{f_pix|}}}|{{{f_pix|}}}px|650px}}|[[File:{{#if: {{{f_artwork|}}}|{{{f_artwork|}}}|Clef.jpg}}|{{#if: {{{f_picpix|}}}|{{{f_picpix|}}}px|50px}}|left|{{#if: {{{f_piclink|}}}|link={{{f_piclink|}}}|link=}}]]'''{{{f_tune_name|}}}'''{{break|2}}'''Played by''':  ''{{{f_played_by|}}}''{{break}}'''Source''': ''{{{f_source|}}}''{{break}}'''Image''': ''{{{f_notes|}}}'']]
+
+</div>
+</includeonly>

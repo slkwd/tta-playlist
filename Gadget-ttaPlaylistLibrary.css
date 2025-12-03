@@ -1,0 +1,63 @@
+/* Griglia delle playlist nella pagina libreria */
+
+.tta-playlist-library-gallery {
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax(220px, 1fr) );
+    gap: 16px 20px;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+
+.tta-playlist-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba( 0, 0, 0, 0.08 );
+    background: #fff;
+    transition: box-shadow 0.15s ease, transform 0.1s ease;
+}
+
+.tta-playlist-card:hover {
+    box-shadow: 0 4px 10px rgba( 0, 0, 0, 0.16 );
+    transform: translateY( -1px );
+}
+
+.tta-playlist-card-cover img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Placeholder quando manca la cover */
+.tta-playlist-card-cover-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+    background: #f5f5f5;
+    color: #555;
+    font-size: 2.4em;
+}
+
+/* Corpo della card */
+.tta-playlist-card-body {
+    padding: 8px 10px 10px;
+}
+
+.tta-playlist-card-title {
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.tta-playlist-card-meta {
+    font-size: 0.8em;
+    color: #555;
+}
+
+/* Nasconde la lista testuale quando la gallery è attiva */
+.tta-playlist-library-has-gallery h2 + * + ul,
+.tta-playlist-library-has-gallery h2 ~ ul {
+    display: none !important;
+}
