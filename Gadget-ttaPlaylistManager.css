@@ -1,25 +1,25 @@
 /* ============================================================
- * 1) Bottone "Add to playlist" sui player individuali
+ * 1) "Add to playlist" button on individual players
  * ============================================================ */
 
-/* Contenitore generale di ogni track-embed */
+/* Wrapper for each track embed (usually created by Template:FeaturedTunes) */
 .tta-track-embed {
     position: relative;
-    display: inline-block !important;  /* stringi al contenuto, non full width */
-    width: auto !important;            /* niente width:100% da altrove       */
-    max-width: 100%;                   /* sicurezza su schermi stretti       */
-    padding-right: 32px;               /* spazio tra player e pulsante +     */
-    min-height: 40px;                  /* un minimo di altezza stabile       */
+    display: inline-block !important; /* shrink to content, not full width */
+    width: auto !important;          /* override any width:100% coming from elsewhere */
+    max-width: 100%;                 /* safety on narrow screens */
+    padding-right: 32px;             /* space between player and "+" button */
+    min-height: 40px;                /* stable minimum height */
 }
 
-/* Clearfix per inglobare eventuali figure/audio flottanti */
+/* Clearfix to contain floating audio/figure elements */
 .tta-track-embed::after {
     content: "";
     display: block;
     clear: both;
 }
 
-/* Wrapper del pulsante + */
+/* Absolutely positioned wrapper that holds the green "+" button */
 .tta-add-to-playlist-wrapper {
     position: absolute;
     top: 50%;
@@ -30,7 +30,7 @@
     pointer-events: auto;
 }
 
-/* Pulsante verde + (questa parte l’abbiamo già ma la ricapitolo) */
+/* Green circular "+" button */
 .tta-add-to-playlist {
     width: 24px;
     height: 24px;
@@ -52,7 +52,6 @@
     background: #27ae60;
 }
 
-
 .tta-add-to-playlist:focus {
     outline: none;
     box-shadow:
@@ -61,39 +60,40 @@
 }
 
 /* ============================================================
- * 2) Barra owner sopra la playlist personale
- *    "Your playlist    +   ⋮"
+ * 2) Owner bar above personal playlists
+ *    "Your playlist     +    ⋮"
  * ============================================================ */
 
+/* Horizontal owner bar above the playlist */
 .tta-playlist-ownerbar {
     display: flex;
-    align-items: baseline;   /* label + pulsanti allineati orizzontalmente */
-    padding: 0 22px;         /* allinea "Your playlist" alla cover del card */
+    align-items: baseline;   /* align label and buttons on one visual line */
+    padding: 0 22px;         /* align "Your playlist" with the card cover */
     margin: 4px 0;
     font-size: 0.9em;
 }
 
-/* Testo "Your playlist" */
+/* "Your playlist" label */
 .tta-playlist-ownerbar-label {
     opacity: 0.8;
 }
 
-/* Gruppo pulsanti (+ e ⋮), mini-toolbar compatta */
+/* Small inline toolbar with "+" and "⋮" */
 .tta-playlist-menu-container {
     display: inline-flex;
     align-items: baseline;
-    column-gap: 8px;        /* distanza reale tra + e ⋮ */
-    margin-left: 18px;      /* spazio dalla label "Your playlist" */
+    column-gap: 8px;    /* real distance between "+" and "⋮" */
+    margin-left: 18px;  /* space between label and buttons */
 }
 
-/* Togliamo margini ereditati da OOUI intorno ai bottoni */
+/* Remove extra OOUI margins around buttons inside the toolbar */
 .tta-playlist-menu-container .oo-ui-widget,
 .tta-playlist-menu-container .oo-ui-buttonWidget,
 .tta-playlist-menu-container .oo-ui-buttonElement {
     margin: 0 !important;
 }
 
-/* Il vero bottone (l'<a>) diventa “nudo”: zero padding/bordo */
+/* Make the underlying <a> look bare (no chrome) */
 .tta-playlist-menu-container .oo-ui-buttonElement-button {
     padding: 0 !important;
     border: 0 !important;
@@ -101,10 +101,10 @@
     min-width: auto !important;
     line-height: 1;
     position: relative;
-    top: 4px;   /* micro-regolazione verticale (per allinearlo alla label) */
+    top: 4px; /* micro vertical tweak for nicer alignment with label */
 }
 
-/* Icona e indicator OOUI: nascosti, non devono occupare spazio */
+/* Hide OOUI default icons/indicators; only textual symbols "+" and "⋮" remain */
 .tta-playlist-menu-container .oo-ui-iconElement-icon,
 .tta-playlist-menu-container .oo-ui-indicatorElement-indicator {
     display: none !important;
@@ -113,7 +113,7 @@
     padding: 0 !important;
 }
 
-/* L’unica cosa che resta è il testo “+” e “⋮” */
+/* "+" and "⋮" visual style */
 .tta-playlist-menu-container .oo-ui-labelElement-label {
     padding: 0 !important;
     margin: 0 !important;
@@ -122,7 +122,7 @@
     opacity: 0.8;
 }
 
-/* Hover leggerissimo sulla mini-toolbar */
+/* Very light hover feedback on the tiny toolbar */
 .tta-playlist-add-button .oo-ui-buttonElement-button:hover,
 .tta-playlist-menu-button .oo-ui-buttonElement-button:hover {
     background: rgba(0, 0, 0, 0.03);
@@ -130,87 +130,33 @@
 }
 
 /* ============================================================
- * 3) Popup menu del ⋮  (Rename / Remove from profile / Delete)
+ * 3) Popup menu (⋮) for "Save order / Rename / Remove / Delete"
  * ============================================================ */
 
-/* Il popup deve stare sopra al player */
+/* Ensure the OOUI popup sits above the player area */
 .tta-playlist-menu-container .oo-ui-popupWidget {
     z-index: 10;
 }
 
-/* Contenitore interno del menu (colonna) */
+/* Inner popup menu container rendered by the gadget */
 .tta-playlist-popup .tta-playlist-menu {
     display: flex;
     flex-direction: column;
     min-width: 240px;
+    padding: 4px 0; /* small top/bottom breathing space like in Teams */
 }
 
-/* Ogni voce del menu */
-.tta-playlist-popup .tta-playlist-menu .oo-ui-buttonWidget {
-    margin: 0;
-}
-
-/* Bottone completo (icona-testuale + label) */
-.tta-playlist-popup .tta-playlist-menu .oo-ui-buttonElement-button {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    padding: 6px 12px;  /* ripristina il padding “da menu” */
-    box-sizing: border-box;
-    text-align: left;
-}
-
-/* Icona/testo a sinistra (in questo caso i simboli ✏, ☆, ✕) */
-.tta-playlist-popup .tta-playlist-menu .oo-ui-iconElement-icon {
-    flex: 0 0 20px;
-    margin-right: 8px;
-}
-
-/* Testo del menu: niente bold, occupa tutto lo spazio restante */
-.tta-playlist-popup .tta-playlist-menu .oo-ui-labelElement-label {
-    flex: 1 1 auto;
-    font-weight: 400;
-}
-
-/* Hover di riga */
-.tta-playlist-popup .tta-playlist-menu .oo-ui-buttonElement-button:hover {
-    background: #f5f5f5;
-}
-
-.tta-artwork {
-    display: none;
-}
-
-
-/* Padding orizzontale per i bottoni del menu ⋮ */
-.tta-playlist-menu .tta-playlist-menu-item .oo-ui-buttonElement-button {
-    padding-left: 0.75em;   /* stacca “icona testuale + testo” dal bordo sinistro */
-    padding-right: 0.75em;
-}
-
-/* Facoltativo: rendi i bottoni leggermente più “menu-like” */
-.tta-playlist-menu .tta-playlist-menu-item .oo-ui-buttonElement-button {
-    text-align: left;
-    width: 100%;
-}
-
-/* Facoltativo: piccolo effetto hover */
-.tta-playlist-menu .tta-playlist-menu-item .oo-ui-buttonElement-button:hover {
-    background-color: #f0f0f0;
-}
-
-/* Layout del popup del menu ⋮ */
-.tta-playlist-popup .tta-playlist-menu {
-    padding: 4px 0;            /* un po' di aria sopra/sotto come in Teams */
-}
-
-/* Ogni item del menu occupa tutta la larghezza */
+/* Each menu item wrapper block */
 .tta-playlist-popup .tta-playlist-menu .tta-playlist-menu-item {
     display: block;
 }
 
-/* Bottone "nudo", a tutta larghezza, con padding tipo Teams */
+/* Base OOUI button for each menu item */
+.tta-playlist-popup .tta-playlist-menu .oo-ui-buttonWidget {
+    margin: 0;
+}
+
+/* Full-width clickable area for each menu item */
 .tta-playlist-popup .tta-playlist-menu .tta-playlist-menu-item .oo-ui-buttonElement-button {
     width: 100%;
     text-align: left;
@@ -218,52 +164,43 @@
     border-radius: 0;
     background: transparent;
     box-shadow: none;
-    padding: 6px 16px;         /* 👈 questo è il padding importante:
-                                  6px verticale, 16px orizzontale */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding: 6px 18px !important; /* MAIN INDENT: 6px vertical, 18px horizontal */
 }
 
-/* Hover di riga, leggermente grigio */
-.tta-playlist-popup .tta-playlist-menu .tta-playlist-menu-item .oo-ui-buttonElement-button:hover {
-    background-color: #f3f3f3;
+/* Icon slot (here used only for simple textual symbols like ✏, ☆, ✕) */
+.tta-playlist-popup .tta-playlist-menu .oo-ui-iconElement-icon {
+    flex: 0 0 20px;
+    margin-right: 8px;
 }
 
-/* Testo del menu: peso "normale" */
-.tta-playlist-popup .tta-playlist-menu .tta-playlist-menu-item .oo-ui-labelElement-label {
+/* Text label: normal weight, flex-grow to take remaining space */
+.tta-playlist-popup .tta-playlist-menu .oo-ui-labelElement-label {
+    flex: 1 1 auto;
     font-weight: 400;
 }
-/* --- Playlist menu: stile tipo Teams --- */
 
-/* Ogni item del menu occupa tutta la larghezza, stile "riga" */
+/* Hover/focus row style: light gray background */
+.tta-playlist-popup .tta-playlist-menu .tta-playlist-menu-item .oo-ui-buttonElement-button:hover,
+.tta-playlist-popup .tta-playlist-menu .tta-playlist-menu-item .oo-ui-buttonElement-button:focus {
+    background-color: #f3f3f3 !important;
+}
+
+/* Slightly darker text on hover */
+.tta-playlist-popup .tta-playlist-menu .tta-playlist-menu-item .oo-ui-buttonElement-button:hover
+    .oo-ui-labelElement-label {
+    color: #202122;
+}
+
+/* Generic playlist menu item style (shared hook) */
 .tta-playlist-menu .tta-playlist-menu-item {
     display: block;
 }
 
-/* Bottone interno: padding forte a sinistra/destra */
-.tta-playlist-menu .tta-playlist-menu-item .oo-ui-buttonElement-button {
-    width: 100%;
-    text-align: left;
-    border: 0;
-    border-radius: 0;
-    background: transparent;
-    box-shadow: none;
-    padding: 6px 18px !important;   /* 👈 INDENTAZIONE PRINCIPALE */
-}
-
-/* Hover di riga */
-.tta-playlist-menu .tta-playlist-menu-item .oo-ui-buttonElement-button:hover {
-    background-color: #f3f3f3;
-}
-
-/* Testo "normale" */
-.tta-playlist-menu .tta-playlist-menu-item .oo-ui-labelElement-label {
-    font-weight: 400;
-}
-/* Hover e focus delle voci del menu ⋮ */
-.tta-playlist-menu .tta-playlist-menu-item .oo-ui-buttonElement-button:hover,
-.tta-playlist-menu .tta-playlist-menu-item .oo-ui-buttonElement-button:focus {
-    background-color: #f3f3f3 !important;  /* grigino chiaro stile menu */
-}
-.tta-playlist-menu .tta-playlist-menu-item .oo-ui-buttonElement-button:hover
-    .oo-ui-labelElement-label {
-    color: #202122; /* testo un filo più scuro */
+/* Hidden artwork span used only as a DOM hook */
+.tta-artwork {
+    display: none;
 }

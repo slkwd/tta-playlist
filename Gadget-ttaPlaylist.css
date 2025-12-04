@@ -1,228 +1,244 @@
-/* ========== Audio embed + bottone "Add to playlist" ===================== */
+/* ============================================================
+ * 1) Audio embed + "Add to playlist" button
+ * ============================================================ */
 
+/* Container around each individual audio embed (FeaturedTunes, etc.) */
 .tta-track-embed {
-	position: relative;
-	margin-bottom: 0.75em;
+    position: relative;
+    margin-bottom: 0.75em;
 }
 
-/* Wrapper per il bottone */
+/* Wrapper for the green "+" button */
 .tta-add-to-playlist-wrapper {
-	margin-top: 0.25em;
-	text-align: right;
+    margin-top: 0.25em;
+    text-align: right;
 }
 
-/* Bottone "Add to playlist" (pallino verde con + bianco) */
+/* Green circular "Add to playlist" button */
 .tta-add-to-playlist {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 24px;
-	height: 24px;
-	border-radius: 999px;
-	border: none;
-	background: #2e8b57; /* verde sobrio */
-	color: #fff;
-	font-size: 16px;
-	line-height: 1;
-	cursor: pointer;
-	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
-	padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    border: none;
+    background: #2e8b57; /* subtle green */
+    color: #fff;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+    padding: 0;
 }
 
 .tta-add-to-playlist:hover {
-	background: #256e45;
+    background: #256e45;
 }
 
-/* ========== CARD DELLA PLAYLIST ========================================= */
+/* ============================================================
+ * 2) Playlist card (wrapper around cover + tracks)
+ * ============================================================ */
 
 .tta-playlist-wrapper {
-	border: 1px solid #d8dde5;
-	border-radius: 6px;
-	padding: 8px 0 0;
-	margin: 0.75em 0;
-	background: #fff;
-	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
-	font-size: 0.95em;
+    border: 1px solid #d8dde5;
+    border-radius: 6px;
+    padding: 8px 0 0;
+    margin: 0.75em 0;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    font-size: 0.95em;
 }
 
+/* Header row: cover + title + controls */
 .tta-playlist-header-row {
-	display: flex;
-	align-items: center;
-	padding: 4px 12px 8px;
+    display: flex;
+    align-items: center;
+    padding: 4px 12px 8px;
 }
 
 .tta-playlist-cover {
-	flex: 0 0 auto;
-	margin-right: 12px;
+    flex: 0 0 auto;
+    margin-right: 12px;
 }
 
 .tta-playlist-cover-img {
-	display: block;
-	width: 96px;
-	height: 96px;
-	object-fit: cover;
-	border-radius: 4px;
-	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+    display: block;
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
 
+/* Meta: title + subtitle + top controls */
 .tta-playlist-meta {
-	flex: 1 1 auto;
-	min-width: 0;
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 .tta-playlist-title {
-	font-weight: 600;
-	font-size: 1.1em;
-	margin-bottom: 2px;
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-bottom: 2px;
 }
 
 .tta-playlist-subtitle {
-	color: #666;
-	font-size: 0.9em;
-	margin-bottom: 4px;
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 4px;
 }
 
-/* Controlli principali (prev / play / next / shuffle) */
+/* Top controls: prev / play / next / shuffle */
 .tta-playlist-controls-top {
-	display: flex;
-	align-items: center;
-	gap: 4px;
-	margin-top: 2px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 2px;
 }
 
 .tta-playlist-btn {
-	border: 1px solid #c3ccd7;
-	background: #f8fafc;
-	border-radius: 999px;
-	padding: 2px 8px;
-	font-size: 0.9em;
-	cursor: pointer;
+    border: 1px solid #c3ccd7;
+    background: #f8fafc;
+    border-radius: 999px;
+    padding: 2px 8px;
+    font-size: 0.9em;
+    cursor: pointer;
 }
 
 .tta-playlist-btn:hover {
-	background: #e8edf4;
+    background: #e8edf4;
 }
 
+/* Shuffle "active" state */
 .tta-playlist-shuffle.is-active {
-	background: #dbeafe;
-	border-color: #60a5fa;
+    background: #dbeafe;
+    border-color: #60a5fa;
 }
 
-/* ========== LISTA TRACCE ================================================= */
+/* ============================================================
+ * 3) Track list
+ * ============================================================ */
 
 .tta-playlist-tracklist {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	border-top: 1px solid #e1e4ea;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #e1e4ea;
 }
 
+/* Each row in the track list */
 .tta-playlist-track {
-	display: flex;
-	align-items: center;
-	padding: 4px 12px;
-	border-top: 1px solid #f0f2f7;
-	cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-top: 1px solid #f0f2f7;
+    cursor: pointer;
 }
 
 .tta-playlist-track:first-child {
-	border-top: none;
+    border-top: none;
 }
 
+/* Currently playing track highlight */
 .tta-playlist-track.is-current {
-	background: #f3f6fb;
+    background: #f3f6fb;
 }
 
-/* Numero traccia */
+/* Track number (1, 2, 3, …) */
 .tta-track-num {
-	flex: 0 0 2em;
-	text-align: right;
-	margin-right: 8px;
-	font-size: 0.9em;
-	color: #666;
+    flex: 0 0 2em;
+    text-align: right;
+    margin-right: 8px;
+    font-size: 0.9em;
+    color: #666;
 }
 
-/* Thumbnail per brano */
+/* Optional thumbnail for each track */
 .tta-track-thumb {
-	flex: 0 0 24px;
-	margin-right: 8px;
+    flex: 0 0 24px;
+    margin-right: 8px;
 }
 
 .tta-track-thumb-img {
-	display: block;
-	width: 24px;
-	height: 24px;
-	object-fit: cover;
-	border-radius: 3px;
-	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+    display: block;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
 
-/* Testo traccia (titolo + extra) */
+/* Text area (title + extra performer info) */
 .tta-track-text {
-	flex: 1 1 auto;
-	min-width: 0;
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 .tta-track-title {
-	font-weight: 600;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .tta-track-extra {
-	font-size: 0.85em;
-	color: #666;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+    font-size: 0.85em;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* Handle drag & drop (⋮⋮) */
+/* Drag & drop handle (⋮⋮), left-side grip */
 .tta-track-handle {
-	flex: 0 0 auto;
-	font-size: 12px;
-	margin: 0 8px;
-	cursor: grab;
-	user-select: none;
-	opacity: 0.6;
+    flex: 0 0 auto;
+    font-size: 12px;
+    margin: 0 8px;
+    cursor: grab;
+    user-select: none;
+    opacity: 0.6;
 }
 
+/* Visual feedback while dragging */
 .tta-playlist-track.is-dragging {
-	opacity: 0.6;
-	background: #eef3ff;
+    opacity: 0.6;
+    background: #eef3ff;
 }
 
-/* Cestino (rimozione brano, gestito dal Manager) */
+/* Trash button (remove track, wired by Manager gadget) */
 .tta-remove-track-btn {
-	flex: 0 0 auto;
-	border: none;
-	background: none;
-	cursor: pointer;
-	font-size: 13px;
-	margin-left: 4px;
-	opacity: 0.8;
+    flex: 0 0 auto;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 13px;
+    margin-left: 4px;
+    opacity: 0.8;
 }
 
 .tta-remove-track-btn:hover {
-	opacity: 1;
+    opacity: 1;
 }
 
-/* ========== BARRA "NOW PLAYING" ======================================== */
+/* ============================================================
+ * 4) "Now playing" bar
+ * ============================================================ */
 
 .tta-playlist-nowplaying {
-	border-top: 1px solid #e1e4ea;
-	padding: 6px 12px 8px;
+    border-top: 1px solid #e1e4ea;
+    padding: 6px 12px 8px;
 }
 
 .tta-nowplaying-title {
-	font-size: 0.9em;
-	margin-bottom: 4px;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
+    font-size: 0.9em;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+/* Native audio element */
 .tta-playlist-audio {
-	width: 100%;
+    width: 100%;
 }

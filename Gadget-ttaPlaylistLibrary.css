@@ -1,36 +1,41 @@
-/* Griglia delle playlist nella pagina libreria */
+/* ============================================================
+ * Playlist Library — Gallery layout for user playlist page
+ * ============================================================ */
 
+/* Grid layout for playlist cards */
 .tta-playlist-library-gallery {
     display: grid;
-    grid-template-columns: repeat( auto-fill, minmax(220px, 1fr) );
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 16px 20px;
     margin-top: 1.5em;
     margin-bottom: 1em;
 }
 
+/* Individual playlist cards */
 .tta-playlist-card {
     display: block;
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
+    background: #fff;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 1px 3px rgba( 0, 0, 0, 0.08 );
-    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     transition: box-shadow 0.15s ease, transform 0.1s ease;
 }
 
 .tta-playlist-card:hover {
-    box-shadow: 0 4px 10px rgba( 0, 0, 0, 0.16 );
-    transform: translateY( -1px );
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+    transform: translateY(-1px);
 }
 
+/* Cover image */
 .tta-playlist-card-cover img {
     display: block;
     width: 100%;
     height: auto;
 }
 
-/* Placeholder quando manca la cover */
+/* Placeholder when no cover is available */
 .tta-playlist-card-cover-placeholder {
     display: flex;
     align-items: center;
@@ -41,7 +46,7 @@
     font-size: 2.4em;
 }
 
-/* Corpo della card */
+/* Card body */
 .tta-playlist-card-body {
     padding: 8px 10px 10px;
 }
@@ -56,7 +61,7 @@
     color: #555;
 }
 
-/* Nasconde la lista testuale quando la gallery è attiva */
+/* Hide the textual UL when we have a gallery */
 .tta-playlist-library-has-gallery h2 + * + ul,
 .tta-playlist-library-has-gallery h2 ~ ul {
     display: none !important;
